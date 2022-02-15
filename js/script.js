@@ -1,5 +1,5 @@
-// document.body.style.background = '#1E293B';
-// document.body.style.color = '#94A38B';
+document.body.style.background = '#1E293B';
+document.body.style.color = '#94A38B';
 
 
 onClick('eightGB', 'memory-cost', 0);
@@ -38,18 +38,31 @@ function updatePrice(itemId, price) {
     total.innerText = totalPrice;
 }
 
+
+// Apply coupon button
 const fakecode = 'pHero';
 
-document.getElementById('apply-btn').addEventListener('click', function () {
+
+
+document.getElementById('apply-btn').addEventListener('click', function myFunc() {
+
     const code = document.getElementById('promo-input').value;
     if (code === fakecode) {
+
         const total = document.getElementById('total-price');
         let totalPrice = parseFloat(total.innerText);
         const discount = totalPrice * 0.2;
         totalPrice = totalPrice - discount;
         total.innerText = totalPrice;
+        const couponAppliedText = document.getElementById('applied-text');
+
+        couponAppliedText.style.display = 'block';
+
+
 
     } else {
+        const couponFailed = document.getElementById('not-applied-text');
+        couponFailed.style.display = 'block';
 
     }
 })
